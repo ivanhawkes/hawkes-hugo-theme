@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="jumbotron text-center">
+                <h1>{{ .Page.Title }}</h1>
+                <p class="lead">Resize this responsive page to see the effect!</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="main">
+        {{ range (.Pages.ByParam "sort-order") }}
+        <article>
+            <header>
+                <h4><a href="{{ .Permalink }}" rel="bookmark">{{ .Title }}</a></h4>
+            </header>
+
+            <div>
+                {{ if .Params.summary }}{{ .Params.summary }}{{ else }}
+                <p>Missing a summary. Please add one to the markdown.</p>{{ end }}
+            </div>
+        </article>
+        {{ end }}
+    </section>
+</div>
+
+{{ end }}

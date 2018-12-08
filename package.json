@@ -1,0 +1,36 @@
+{
+    "name": "developer-blog",
+    "version": "1.0.0",
+    "description": "A Hugo Bootstrap theme for developers who dwell in darkness and work on their art.",
+    "main": "index.js",
+    "dependencies": {
+        "bootstrap": "^4.1.3",
+        "jquery": "^3.3.1",
+        "popper.js": "^1.14.6"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.26.3",
+        "gulp": "^3.9.1",
+        "gulp-sass": "^4.0.2"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ivanhawkes/Developer-Blog.git"
+    },
+    "keywords": [
+        "hugo",
+        "bootstrap",
+        "theme",
+        "developer",
+        "blog"
+    ],
+    "author": "Ivan Hawkes",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ivanhawkes/Developer-Blog/issues"
+    },
+    "homepage": "https://github.com/ivanhawkes/Developer-Blog#readme"
+}
