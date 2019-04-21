@@ -1,14 +1,14 @@
 # theme.toml template for a Hugo theme
 # See https://github.com/gohugoio/hugoThemes#themetoml for an example
 
-name = "Developer Blog"
+name = "Tau Radius Development"
 license = "MIT"
 licenselink = "https://github.com/ivanhawkes/Developer-Blog/blob/master/LICENSE"
-description = "A theme developers who dwell in darkness and work on their art."
-homepage = "http://hawkes.info/"
+description = "A theme for developers who dwell in darkness and work on their art."
+homepage = "http://tauradius.com/"
 tags = ["minimal", "responsive"]
-features = ["developer", "blog", "minimal", "responsive"]
-min_version = "0.41"
+features = ["software", "developer", "blog", "minimal", "responsive"]
+min_version = "0.40.1"
 
 [author]
   name = "Ivan Hawkes"

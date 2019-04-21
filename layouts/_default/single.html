@@ -1,46 +1,112 @@
 {{ define "main" }}
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="jumbotron text-center">
-                <h1>{{ .Page.Title }}</h1>
-                <p class="lead">Resize this responsive page to see the effect!</p>
+<div class="information-page">
+    {{- partial "masthead-small.html" . -}}
+
+    <div class="main main-raised">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-center">
+
+                    <h1>{{ .Page.Title }}</h1>
+
+                    {{ if .Params.image }}
+                    <div class="card card-blog">
+                        <div class="card-header card-header-image">
+                            <a href="#pablo">
+                                <img src="{{ .Params.image }}" alt="">
+                            </a>
+                            <div class="colored-shadow" style="background-image: url('{{ .Params.image }}'); opacity: 1;"></div>
+                        </div>
+
+                        <div class="card-body">
+                            <p class="text-left">{{ .Params.imagecaption }}</p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+
+            <!-- Publication details and social media sharing icons. -->
+            <div class="row">
+                <div class="col-md-2 ml-auto mr-auto text-left">
+                    &nbsp;
+                </div>
+                <div class="col-md-4 ml-auto mr-auto text-left align-middle">
+                    <p class="h6 text-left">
+                        By {{ .Params.author }}<br />{{ .PublishDate.Format "January 2, 2006" }}
+                    </p>
+                </div>
+                <div class="col-md-4 ml-auto mr-auto text-right align-middle">
+                    {{- partial "social-media-share.html" . -}}
+                </div>
+                <div class="col-md-2 ml-auto mr-auto text-left">
+                    &nbsp;
+                </div>
+            </div>
+
+            <!-- Spacer. -->
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-left">
+                    <hr />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-left">
+                    {{ .Content }}
+                </div>
+            </div>
+
+            <!-- Spacer. -->
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-left">
+                    <hr />
+                </div>
+            </div>
+
+            <!-- Blog Tags. -->
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-left">
+                    <p class="h6">
+                        Discover more posts like this:<br />
+                        {{ with .Params.tags }}
+                        {{ range . }}
+                        <a class="btn btn-round" href="/tags/{{ . | urlize }}">
+                            {{ . }}
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Spacer. -->
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-left">
+                    <hr />
+                </div>
+            </div>
+
+            <!-- Next / Previous. -->
+            <div class="row">
+                <div class="col-md-2 ml-auto mr-auto text-left">
+                    &nbsp;
+                </div>
+                <div class="col-md-4 ml-auto mr-auto text-left h6">
+                    {{ with .PrevInSection }} Previous:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
+                </div>
+                <div class="col-md-4 ml-auto mr-auto text-right h6">
+                    {{ with .NextInSection }} Next:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
+                </div>
+                <div class="col-md-2 ml-auto mr-auto text-left">
+                    &nbsp;
+                </div>
             </div>
         </div>
     </div>
 
-    <section id="main">
-        <div>
-            <article id="content">
-                {{ .Content }}
-            </article>
-        </div>
-    </section>
-
-    <aside id="meta">
-        <div>
-            {{ with .Params.topics }}
-            <ul id="topics">
-                {{ range . }}
-                <li><a href="{{ " topics " | absURL}}{{ . | urlize }}">{{ . }}</a> </li>
-                {{ end }}
-            </ul>
-            {{ end }} {{ with .Params.tags }}
-            <ul id="tags">
-                {{ range . }}
-                <li> <a href="{{ " tags " | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
-                {{ end }}
-            </ul>
-            {{ end }}
-        </div>
-
-        <div>
-            {{ with .PrevInSection }}
-            <a class="previous" href="{{.Permalink}}"> {{.Title}}</a> {{ end }} {{ with .NextInSection }}
-            <a class="next" href="{{.Permalink}}"> {{.Title}}</a> {{ end }}
-        </div>
-    </aside>
 </div>
 
 {{ end }}

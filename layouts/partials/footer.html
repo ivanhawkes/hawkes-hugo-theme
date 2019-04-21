@@ -1,3 +1,60 @@
-<script src="/js/jquery.min.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+{{"<!-- START FOOTER SECTION -->" | safeHTML}}
+<footer class="footer" data-background-color="black">
+    <div class="container">
+        <!-- Footer menu. -->
+        <nav class="float-left">
+            <ul>
+                <li>
+                    <a href="{{ $.Site.BaseURL }}">{{ .Site.Params.copyright.owner }}</a>
+                </li>
+                <li>
+                    <a href="/about/">About Us</a>
+                </li>
+                <li>
+                    <a href="/post/">Posts</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Copyright notice. -->
+        <div class="copyright float-right">
+            &copy; {{ .Site.Params.copyright.year }} {{ .Site.Params.copyright.owner }} {{ .Site.Params.copyright.notice }}
+        </div>
+    </div>
+</footer>
+
+<!--  Core JS Files   -->
+<script src="/js/core/jquery.min.js"></script>
+<script src="/js/core/popper.min.js"></script>
+<script src="/js/bootstrap-material-design.js"></script>
+
+<!-- Google Maps Plugin  -->
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+<!-- Plugin for Date Time Picker and Full Calendar Plugin  -->
+<script src="/js/plugins/moment.min.js"></script>
+
+<!-- Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src="/js/plugins/bootstrap-datetimepicker.min.js"></script>
+
+<!-- Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="/js/plugins/nouislider.min.js"></script>
+
+<!-- Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+<script src="/js/plugins/bootstrap-selectpicker.js"></script>
+
+<!-- Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/ -->
+<script src="/js/plugins/bootstrap-tagsinput.js"></script>
+
+<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="/js/plugins/jasny-bootstrap.min.js"></script>
+
+<!-- Plugin for Small Gallery in Product Page -->
+<script src="/js/plugins/jquery.flexisel.js"></script>
+
+<!-- Plugins for presentation and navigation -->
+<script src="/assets-for-demo/js/modernizr.js"></script>
+<script src="/assets-for-demo/js/vertical-nav.js"></script>
+
+<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+<script src="/js/material-kit.js?v=2.0.3"></script>
+{{"<!-- END FOOTER SECTION -->" | safeHTML}}

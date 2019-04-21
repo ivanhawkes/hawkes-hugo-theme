@@ -1,76 +1,63 @@
 {{ define "main" }}
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="jumbotron text-center">
-                <h1>{{ .Page.Title }}</h1>
-                <p class="lead">Resize this responsive page to see the effect!</p>
+<div class="index-page">
+
+    {{ partial "masthead.html" . }}
+
+    <div class="main main-raised">
+
+        <!-- Marketing jargon, leads. -->
+        <div class="container ">
+            <div class="row">
+                <!-- Each data instance... -->
+                {{"<!-- START LEAD SECTION -->" | safeHTML}}
+
+                {{ range .Site.Data.lead.item }}
+
+                {{- partial "lead.html" . -}}
+
+                {{ end }}
+
+                {{"<!-- END LEAD PROFILES -->" | safeHTML}}
             </div>
         </div>
-    </div>
 
-    <!-- Content from the _index.html -->
-    <div class="row">
-        <div class="col-5">
-            <div class="card">
-                <div class="card-body">
-                    <p> {{ .Page.Content }}</p>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    {{ .Page.Content }}
                 </div>
             </div>
         </div>
 
-        <!-- List of characters -->
-        <div class="col">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h4 class="card-title">Characters</h4>
+        <div class="container">
+            <h2 class="title text-center">Recent Posts</h2>
+            <hr />
+            <div class="row">
+                {{"<!-- START POSTS SECTION -->" | safeHTML}}
 
-                    {{ range where (.Pages.ByParam "sort-order") "Type" "character" }}
-                    <article>
-                        <a class="card-link" href="{{ .Permalink }}">
-              {{ .Title }}
-            </a>
+                {{ range first 6 (where .Pages.ByDate.Reverse "Type" "post") }}
 
-                        <div>
-                            {{ if .Params.summary }}
-                            <p class="card-text text-left">{{ .Params.summary }}</p>
-                            {{ else }}
-                            <p class="card-text text-left">Missing a summary. Please add one to the markdown.</p>
-                            {{ end }}
-                        </div>
-                    </article>
+                {{- partial "posts.html" . -}}
+
+                {{ end }}
+
+                {{"<!-- END POSTS SECTION -->" | safeHTML}}
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="title text-center">Contact Us</h2>
+            <hr />
+            <div class="row">
+                <div class="col">
+                    {{ with .Site.Params.social }}
+                    {{- partial "social-media.html" . -}}
                     {{ end }}
                 </div>
             </div>
         </div>
-
-        <!-- List of chapters -->
-        <div class="col">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h4 class="card-title">Chapters</h4>
-
-                    {{ range where (.Pages.ByParam "sort-order") "Type" "chapter"}}
-                    <article>
-                        <a class="card-link" href="{{ .Permalink }}">{{ .Title }}</a> {{ if .Params.subtitle }}
-                        <p class="card-text text-left">{{ .Params.subtitle }}</p>
-                        {{ end }}
-
-                        <div>
-                            {{ if .Params.summary }}
-                            <p class="card-text text-left">{{ .Params.summary }}</p>
-                            {{ else }}
-                            <p class="card-text text-left">Missing a summary. Please add one to the markdown.</p>
-                            {{ end }}
-                        </div>
-                    </article>
-                    {{ end }}
-                </div>
-            </div>
+    </div>
         </div>
 
-    </div>
-</div>
-
-{{ end }}
+        {{ end }}

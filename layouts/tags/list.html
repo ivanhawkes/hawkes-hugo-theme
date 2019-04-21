@@ -1,0 +1,41 @@
+{{ define "main" }}
+
+<div class="information-page">
+    {{- partial "masthead-small.html" . -}}
+
+    <div class="main main-raised">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="container">
+
+                        <!-- If there's any content, it can go here, in it's own row. -->
+                        {{ if .Content }}
+                        <div class="row">
+                            <div class="col">
+                                {{ .Content }}
+                            </div>
+                        </div>
+                        {{ end }}
+
+                        <!-- Each data instance... -->
+                        <div class="row">
+                            {{"<!-- START POSTS SECTION -->" | safeHTML}}
+
+                            {{ range (where .Pages.ByDate.Reverse "Type" "post") }}
+
+                            {{- partial "posts.html" . -}}
+
+                            {{ end }}
+
+                            {{"<!-- END POSTS PROFILES -->" | safeHTML}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ end }}

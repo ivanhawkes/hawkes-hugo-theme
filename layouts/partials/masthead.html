@@ -1,0 +1,20 @@
+{{"<!-- START MASTHEAD SECTION -->" | safeHTML}}
+
+<div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('{{ .Site.Params.sitedesign.homepage }}'); transform: translate3d(0px, 0px, 0px);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+                <div class="brand">
+                    <h1 class="title">{{ .Page.Title }}</h1>
+                    <h4>
+                        {{ if .Params.summary }} {{ .Params.summary }} {{ else }}
+                        <p>Missing a summary. Please add one to the markdown.</p>
+                        {{ end }}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{"<!-- END MASTHEAD SECTION -->" | safeHTML}}

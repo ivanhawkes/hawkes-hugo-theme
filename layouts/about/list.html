@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+<div class="information-page">
+    {{- partial "masthead-small.html" . -}}
+
+    <div class="main main-raised">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="container">
+
+                        <!-- If there's any content, it can go here, in it's own row. -->
+                        {{ if .Content }}
+                        <div class="row">
+                            <div class="col">
+                                {{ .Content }}
+                            </div>
+                        </div>
+                        {{ end }}
+
+                        {{ if .Site.Data.about.corevalue }}
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto text-center">
+                                <h2 class="title">{{ .Param "core-title" }}</h2>
+                                <h5 class="description">{{ .Param "core-description" }}</h5>
+                            </div>
+                        </div>
+
+                        <!-- Each data instance... -->
+                        <div class="row">
+                            {{"<!-- START PROFILES SECTION -->" | safeHTML}}
+
+                            {{ range .Site.Data.about.corevalue }}
+
+                            {{- partial "about-card.html" . -}}
+
+                            {{ end }}
+
+                            {{"<!-- END POSTS PROFILES -->" | safeHTML}}
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ end }}

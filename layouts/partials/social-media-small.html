@@ -1,0 +1,51 @@
+{{"<!-- START CONTACT SECTION -->" | safeHTML}}
+
+{{ if .github }}
+<a href="https://github.com/{{ .github }}" class="btn btn-just-icon btn-github" target="_blank">
+    <i class="fa fa-github"></i>
+</a>
+{{ end }}
+
+{{ if .bitbucket }}
+<a href="https://bitbucket.com/{{ .bitbucket }}" class="btn btn-just-icon btn-bitbucket" target="_blank">
+    <i class="fa fa-bitbucket"></i>
+</a>
+{{ end }}
+
+{{ if .twitter }}
+<a href="http://www.twitter.com/{{ .twitter}}/" class="btn btn-just-icon btn-twitter" target="_blank">
+    <i class="fa fa-twitter"></i>
+</a>
+{{ end }}
+
+{{ if .youtube }}
+<a href="https://www.youtube.com/{{ .youtube }}/" class="btn btn-just-icon btn-youtube" target="_blank">
+    <i class="fa fa-youtube-play"></i>
+</a>
+{{ end }}
+
+{{ if .facebook }}
+<a href="http://www.facebook.com/{{ .facebook }}/" class="btn btn-just-icon btn-facebook" target="_blank">
+    <i class="fa fa-facebook-square"></i>
+</a>
+{{ end }}
+
+{{ if .googleplus }}
+<a href="https://plus.google.com/u/0/+{{ .googleplus }}" class="btn btn-just-icon btn-google" target="_blank">
+    <i class="fa fa-google-plus-square"></i>
+</a>
+{{ end }}
+
+{{ if .linkedin }}
+<a href="https://www.linkedin.com/in/{{ .linkedin }}/" class="btn btn-just-icon btn-linkedin" target="_blank">
+    <i class="fa fa-linkedin-square"></i>
+</a>
+{{ end }}
+
+{{ if .pinterest }}
+<a href="https://www.pinterest.com/{{ .pinterest }}/" class="btn btn-just-icon btn-pinterest" target="_blank">
+    <i class="fa fa-pinterest"></i>
+</a>
+{{ end }}
+
+{{"<!-- END CONTACT SECTION -->" | safeHTML}}

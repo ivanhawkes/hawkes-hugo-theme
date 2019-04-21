@@ -1,31 +1,34 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync').create();
-var sass        = require('gulp-sass');
+var gulp = require('gulp');
+var path = require('path');
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var sourcemaps = require('gulp-sourcemaps');
+var open = require('gulp-open');
 
-// Compile sass into CSS & auto-inject into browsers
-gulp.task('sass', function() {
-    return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'static/scss/*.scss'])
-        .pipe(sass())
-        .pipe(gulp.dest("static/css"))
-        .pipe(browserSync.stream());
+var Paths = {
+    HERE: './',
+    DIST: 'dist/',
+    CSS: './static/css/',
+    SCSS_TOOLKIT_SOURCES: './static/scss/*.scss',
+    SCSS: './static/scss/**/**'
+};
+
+gulp.task('compile-scss', function() {
+    return gulp.src(Paths.SCSS_TOOLKIT_SOURCES)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write(Paths.HERE))
+        .pipe(gulp.dest(Paths.CSS));
 });
 
-// Move the javascript files into our /static/js folder
-gulp.task('js', function() {
-    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js'])
-        .pipe(gulp.dest("static/js"))
-        .pipe(browserSync.stream());
+gulp.task('watch', function() {
+    gulp.watch(Paths.SCSS, ['compile-scss']);
 });
 
-// Static Server + watching scss/html files
-gulp.task('serve', ['sass'], function() {
-
-    browserSync.init({
-        server: "./static"
-    });
-
-    gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'static/scss/*.scss'], ['sass']);
-    gulp.watch("static/*.html").on('change', browserSync.reload);
+gulp.task('open', function() {
+    gulp.src('index.html')
+        .pipe(open());
 });
 
-gulp.task('default', ['js','serve']);
+gulp.task('open-app', ['open', 'watch']);

@@ -1,0 +1,35 @@
+{{"<!-- START CONTACT SECTION -->" | safeHTML}}
+
+{{ with $.Site.Params.social.facebook }}
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ $.Page.URL | absURL }}" class="btn btn-just-icon btn-facebook" target="_blank">
+    <i class="fa fa-facebook-square"></i>
+</a>
+{{ end }}
+
+{{ with $.Site.Params.social.twitter }}
+<a href="https://twitter.com/intent/tweet?url={{ $.Page.URL | absURL }}" class="btn btn-just-icon btn-twitter" target="_blank">
+    <i class="fa fa-twitter"></i>
+</a>
+{{ end }}
+
+{{ with $.Site.Params.social.linkedin }}
+<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $.Page.URL | absURL }}" class="btn btn-just-icon btn-linkedin" target="_blank">
+    <i class="fa fa-linkedin-square"></i>
+</a>
+{{ end }}
+
+{{ with $.Site.Params.social.googleplus }}
+<a href="https://plus.google.com/share?url={{ $.Page.URL | absURL }}" class="btn btn-just-icon btn-google" target="_blank">
+    <i class="fa fa-google-plus-square"></i>
+</a>
+{{ end }}
+
+{{ with $.Site.Params.social.pinterest }}
+<a href="http://www.pinterest.com/pin/find/?url={{ $.Page.URL | absURL }}" class="btn btn-just-icon btn-pinterest" target="_blank">
+    <i class="fa fa-pinterest-square"></i>
+</a>
+{{ end }}
+
+
+
+{{"<!-- END CONTACT SECTION -->" | safeHTML}}

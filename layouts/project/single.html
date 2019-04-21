@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<div class="information-page">
+    {{- partial "masthead-small.html" . -}}
+
+    <div class="main main-raised">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-center">
+
+                    <h1>{{ .Page.Title }}</h1>
+
+                    {{ if .Params.image }}
+                    <div class="card card-blog">
+                        <div class="card-header card-header-image">
+                            <a href="#pablo">
+                                <img src="{{ .Params.image }}" alt="">
+                            </a>
+                            <div class="colored-shadow" style="background-image: url('{{ .Params.image }}'); opacity: 1;"></div>
+                        </div>
+
+                        <div class="card-body">
+                            <p class="text-left">{{ .Params.imagecaption }}</p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+
+            <!-- Publication details and social media sharing icons. -->
+            <div class="row">
+                <div class="col-md-2 ml-auto mr-auto text-left">
+                    &nbsp;
+                </div>
+                <div class="col-md-4 ml-auto mr-auto text-left align-middle">
+                    <p class="h6 text-left">
+                        By {{ .Params.author }}<br />{{ .PublishDate.Format "January 2, 2006" }}
+                    </p>
+                </div>
+                <div class="col-md-4 ml-auto mr-auto text-right align-middle">
+                    {{- partial "social-media-share.html" . -}}
+                </div>
+                <div class="col-md-2 ml-auto mr-auto text-left">
+                    &nbsp;
+                </div>
+            </div>
+
+            <!-- Spacer. -->
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-left">
+                    <hr />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-left">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ end }}

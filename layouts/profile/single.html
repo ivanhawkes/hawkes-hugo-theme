@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<div class="profile-page">
+    {{- partial "masthead-small.html" . -}}
+
+    <div class="main main-raised">
+        <div class="container">
+
+            {{ range (where .Site.Data.profile.person "profile" .Params.profile) }}
+
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto">
+                    <div class="profile">
+                        <div class="avatar">
+                            <img src="/img/author/avatar.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                        </div>
+
+                        <div class="name">
+                            <h3 class="title">{{ .name }}</h3>
+                            <h6>{{ .position }}</h6>
+
+                            <p>{{- partial "social-media-small.html" . -}}</p>
+
+                            <h5>&quot;{{ .description }}&quot;</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{ end }}
+
+            <!-- Main Content -->
+            <div class="section section-text">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        {{ .Content }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{ end }}
