@@ -7,8 +7,8 @@
                 <div class="brand">
                     <h1 class="title">{{ .Page.Title }}</h1>
                     <h4>
-                        {{ if .Params.summary }} {{ .Params.summary }} {{ else }}
-                        <p>Missing a summary. Please add one to the markdown.</p>
+                        {{ if .Params.description }} {{ .Params.description }} {{ else }}
+                        <p>Missing a description. Please add one to the markdown.</p>
                         {{ end }}
                     </h4>
                 </div>
