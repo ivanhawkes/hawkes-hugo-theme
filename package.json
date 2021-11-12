@@ -35,13 +35,13 @@
   "deprecated": false,
   "description": "Material Kit, a Google Material Desgin. Coded by Creative Tim",
   "devDependencies": {
-    "gulp": "^4.0.2",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-install": "^1.1.0",
     "gulp-open": "^3.0.1",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4"
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^2.6.5"
   },
   "directories": {
     "example": "root"
@@ -77,7 +77,7 @@
   },
   "version": "2.0.4",
   "dependencies": {
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^4.6.1",
     "jquery": "^3.6.0",
     "popper": "^1.0.1"
   }
