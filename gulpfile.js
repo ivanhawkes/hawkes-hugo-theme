@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var path = require('path');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var open = require('gulp-open');
@@ -13,6 +13,12 @@ var Paths = {
     SCSS: './static/scss/**/**'
 };
 
+gulp.task('clean', () => {
+    return del([
+        'static/css/hawkes.css',
+    ]);
+});
+
 gulp.task('compile-scss', function() {
     return gulp.src(Paths.SCSS_TOOLKIT_SOURCES)
         .pipe(sourcemaps.init())
@@ -22,13 +28,16 @@ gulp.task('compile-scss', function() {
         .pipe(gulp.dest(Paths.CSS));
 });
 
-gulp.task('watch', function() {
-    gulp.watch(Paths.SCSS, ['compile-scss']);
-});
+// gulp.task('watch', function() {
+//     gulp.watch(Paths.SCSS, ['compile-scss']);
+// });
 
-gulp.task('open', function() {
-    gulp.src('index.html')
-        .pipe(open());
-});
+// gulp.task('open', function() {
+//     gulp.src('index.html')
+//         .pipe(open());
+// });
 
-gulp.task('open-app', ['open', 'watch']);
+// gulp.task('open-app', ['open', 'watch']);
+
+//gulp.task('default', gulp.series(['clean', 'compile-scss']));
+gulp.task('default', gulp.series(['compile-scss']));
