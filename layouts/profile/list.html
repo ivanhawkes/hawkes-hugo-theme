@@ -7,32 +7,32 @@
 
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <div class="container">
-
-                        <!-- If there's any content, it can go here, in it's own row. -->
-                        {{ if .Content }}
-                        <div class="row">
-                            <div class="col">
-                                {{ .Content }}
+                
+                <!-- If there's any content, it can go here, in it's own row. -->
+                {{ if .Content }}
+                    <div class="col-12">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    {{ .Content }}
+                                </div>
                             </div>
                         </div>
-                        {{ end }}
-
-                        <!-- Each data instance... -->
-                        <div class="row">
-                            {{"<!-- START PROFILES SECTION -->" | safeHTML}}
-
-                            {{ range .Site.Data.profile.person }}
-
-                            {{- partial "profile-card.html" . -}}
-
-                            {{ end }}
-
-                            {{"<!-- END POSTS PROFILES -->" | safeHTML}}
-                        </div>
                     </div>
+                {{ end }}
+
+                <!-- Each data instance... -->
+                {{"<!-- START PROFILES SECTION -->" | safeHTML}}
+
+                {{ range .Site.Data.profile.person }}
+                
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    {{- partial "profile-card.html" . -}}
                 </div>
+
+                {{ end }}
+
+                {{"<!-- END POSTS PROFILES -->" | safeHTML}}
             </div>
         </div>
     </div>
