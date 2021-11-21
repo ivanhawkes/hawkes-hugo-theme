@@ -1,33 +1,21 @@
 {{"<!-- START NAVIGATION SECTION -->" | safeHTML}}
 
-<nav class="navbar fixed-top navbar-expand-lg bg-dark navbar-color-on-scroll navbar-transparent" color-on-scroll="100" id="sectionsNav">
-    <div class="container">
-        <div class="navbar-translate">
-            <a class="navbar-brand" href="{{ $.Site.BaseURL }}">{{ .Site.Params.copyright.owner }}</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <!-- Main Menu. -->
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="material-icons">menu</i> Menu
-                    </a>
-                    <div class="dropdown-menu dropdown-with-icons">
-                        {{ range .Site.Menus.nav }}
-                        <a href="{{ $.Site.BaseURL }}{{ .URL }}" class="dropdown-item">
-                            {{ .Pre }} {{ .Name }} {{ .Post }}
-                        </a>
-                        {{ end }}
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+
+    <!-- <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li> -->
+
+    {{ range .Site.Menus.nav }}
+    <li class="nav-item">
+        <a href="{{ $.Site.BaseURL }}{{ .URL }}" class="nav-link">
+        {{ .Pre }} {{ .Name }} {{ .Post }}
+        </a>
+    </li>
+    {{ end }}
+</ul>
 
 {{"<!-- END NAVIGATION SECTION -->" | safeHTML}}

@@ -1,11 +1,11 @@
 
-<div class="col-sm-12 col-md-6 col-lg-4 ml-auto mr-auto card card-plain card-blog">
+<div class="col card card-plain card-blog">
     <div class="card-header card-header-image">
         <a href="{{ .Permalink }}">
             {{ if .Params.image }}
-            <img class="img img-raised" src="{{ .Params.image }}">
+            <img class="img-fluid" src="{{ .Params.image }}">
             {{ else }}
-            <img class="img img-raised" src="/img/site/missing-image.jpg">
+            <img class="img-fluid" src="/img/site/missing-image.jpg">
             {{ end }}
         </a>
     </div>

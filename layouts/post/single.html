@@ -7,7 +7,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-md-8 ml-auto mr-auto text-center">
+                <div class="col text-center">
 
                     <h1>{{ .Page.Title }}</h1>
 
@@ -15,13 +15,13 @@
                     <div class="card card-blog">
                         <div class="card-header card-header-image">
                             <a href="#pablo">
-                                <img src="{{ .Params.image }}" alt="">
+                                <img src="{{ .Params.image }}" class="img-fluid" alt="">
                             </a>
                             <div class="colored-shadow" style="background-image: url('{{ .Params.image }}'); opacity: 1;"></div>
                         </div>
 
                         <div class="card-body">
-                            <p class="text-left">{{ .Params.imagecaption }}</p>
+                            <p class="text-start">{{ .Params.imagecaption }}</p>
                         </div>
                     </div>
                     {{ end }}
@@ -30,45 +30,45 @@
 
             <!-- Publication details and social media sharing icons. -->
             <div class="row">
-                <div class="col-md-2 ml-auto mr-auto text-left">
+                <div class="col text-start">
                     &nbsp;
                 </div>
-                <div class="col-md-4 ml-auto mr-auto text-left align-middle">
-                    <p class="h6 text-left">
+                <div class="col text-start align-middle">
+                    <p class="h6 text-start">
                         By {{ .Params.author }}<br />{{ .PublishDate.Format "January 2, 2006" }}
                     </p>
                 </div>
-                <div class="col-md-4 ml-auto mr-auto text-right align-middle">
+                <div class="col text-end align-middle">
                     {{- partial "social-media-share.html" . -}}
                 </div>
-                <div class="col-md-2 ml-auto mr-auto text-left">
+                <div class="col text-start">
                     &nbsp;
                 </div>
             </div>
 
             <!-- Spacer. -->
             <div class="row">
-                <div class="col-md-8 ml-auto mr-auto text-left">
+                <div class="col text-start">
                     <hr />
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-8 ml-auto mr-auto text-left">
+                <div class="col text-start">
                     {{ .Content }}
                 </div>
             </div>
 
             <!-- Spacer. -->
             <div class="row">
-                <div class="col-md-8 ml-auto mr-auto text-left">
+                <div class="col text-start">
                     <hr />
                 </div>
             </div>
 
             <!-- Blog Tags. -->
             <div class="row">
-                <div class="col-md-8 ml-auto mr-auto text-left">
+                <div class="col text-start">
                     <p class="h6">
                         Discover more posts like this:<br />
                         {{ with .Params.tags }}
@@ -84,23 +84,23 @@
 
             <!-- Spacer. -->
             <div class="row">
-                <div class="col-md-8 ml-auto mr-auto text-left">
+                <div class="col text-start">
                     <hr />
                 </div>
             </div>
 
             <!-- Next / Previous. -->
             <div class="row">
-                <div class="col-md-2 ml-auto mr-auto text-left">
+                <div class="col text-start">
                     &nbsp;
                 </div>
-                <div class="col-md-4 ml-auto mr-auto text-left h6">
+                <div class="col text-start h6">
                     {{ with .PrevInSection }} Previous:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
                 </div>
-                <div class="col-md-4 ml-auto mr-auto text-right h6">
+                <div class="col text-end h6">
                     {{ with .NextInSection }} Next:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
                 </div>
-                <div class="col-md-2 ml-auto mr-auto text-left">
+                <div class="col text-start">
                     &nbsp;
                 </div>
             </div>

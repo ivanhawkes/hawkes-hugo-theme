@@ -9,10 +9,10 @@
             {{ range (where .Site.Data.profile.person "profile" .Params.profile) }}
 
             <div class="row">
-                <div class="col-md-6 ml-auto mr-auto">
+                <div class="col">
                     <div class="profile">
                         <div class="avatar">
-                            <img src="{{ .avatar }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                            <img src="{{ .avatar }}" class="img-fluid" alt="Circle Image" class="img-raised rounded-circle img-fluid">
                         </div>
 
                         <div class="name">
@@ -32,7 +32,7 @@
             <!-- Main Content -->
             <div class="section section-text">
                 <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto">
+                    <div class="col">
                         {{ .Content }}
                     </div>
                 </div>
