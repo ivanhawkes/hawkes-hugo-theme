@@ -1,17 +1,31 @@
 {{"<!-- START NAVIGATION SECTION -->" | safeHTML}}
 
-<ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-    </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="/">Brand</a> -->
 
-    {{ range .Site.Menus.nav }}
-    <li class="nav-item">
-        <a href="{{ $.Site.BaseURL }}{{ .URL }}" class="nav-link">
-        {{ .Pre }} {{ .Name }} {{ .Post }}
-        </a>
-    </li>
-    {{ end }}
-</ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a href="{{ $.Site.BaseURL }}" class="nav-link d-flex align-items-center">
+                        <i class='bi-house'></i>&NonBreakingSpace;Home
+                    </a>
+                </li>
+
+                {{ range .Site.Menus.nav }}
+                    <li class="nav-item">
+                        <a href="{{ $.Site.BaseURL }}{{ .URL }}" class="nav-link d-flex align-items-center">
+                            {{ .Pre }}&NonBreakingSpace;{{ .Name }} {{ .Post }}
+                        </a>
+                    </li>
+                {{ end }}     
+            </ul>
+        </div>
+    </div>
+</nav>
 
 {{"<!-- END NAVIGATION SECTION -->" | safeHTML}}

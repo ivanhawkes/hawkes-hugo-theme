@@ -14,7 +14,7 @@
 
                 {{ range .Site.Data.lead.item }}
 
-                {{- partial "lead.html" . -}}
+                    {{- partial "lead.html" . -}}
 
                 {{ end }}
 
@@ -38,7 +38,7 @@
 
                 {{ range first 6 (where .Pages.ByDate.Reverse "Type" "post") }}
 
-                {{- partial "posts.html" . -}}
+                    {{- partial "posts.html" . -}}
 
                 {{ end }}
 
@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col">
                     {{ with .Site.Params.social }}
-                    {{- partial "social-media.html" . -}}
+                        {{- partial "social-media.html" . -}}
                     {{ end }}
                 </div>
             </div>

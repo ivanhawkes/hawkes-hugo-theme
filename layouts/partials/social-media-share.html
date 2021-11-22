@@ -1,33 +1,25 @@
 {{"<!-- START CONTACT SECTION -->" | safeHTML}}
 
 {{ with $.Site.Params.social.facebook }}
-<a href="https://www.facebook.com/sharer/sharer.php?u={{ $.Site.Params.social.facebook }}" class="btn btn-just-icon btn-facebook" target="_blank">
-    <i class="fa fa-facebook-square"></i>
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ $.Site.Params.social.facebook }}" class="btn" target="_blank">
+    <i class="bi-facebook" style="font-size:32px"></i>
 </a>
 {{ end }}
 
 {{ with $.Site.Params.social.twitter }}
-<a href="https://twitter.com/intent/tweet?url={{ $.Site.Params.social.twitter }}" class="btn btn-just-icon btn-twitter" target="_blank">
-    <i class="fa fa-twitter"></i>
+<a href="https://twitter.com/intent/tweet?url={{ $.Site.Params.social.twitter }}" class="btn" target="_blank">
+    <i class="bi-twitter" style="font-size:32px"></i>
 </a>
 {{ end }}
 
 {{ with $.Site.Params.social.linkedin }}
-<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $.Site.Params.social.linkedin }}" class="btn btn-just-icon btn-linkedin" target="_blank">
-    <i class="fa fa-linkedin-square"></i>
-</a>
-{{ end }}
-
-{{ with $.Site.Params.social.googleplus }}
-<a href="https://plus.google.com/share?url={{ $.Site.Params.social.googleplus }}" class="btn btn-just-icon btn-google" target="_blank">
-    <i class="fa fa-google-plus-square"></i>
-</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $.Site.Params.social.linkedin }}" class="btn" target="_blank">
+    <i class="bi-linkedin" style="font-size:32px"></i></a>
 {{ end }}
 
 {{ with $.Site.Params.social.pinterest }}
-<a href="http://www.pinterest.com/pin/find/?url={{ $.Site.Params.social.pinterest }}" class="btn btn-just-icon btn-pinterest" target="_blank">
-    <i class="fa fa-pinterest-square"></i>
-</a>
+<a href="http://www.pinterest.com/pin/find/?url={{ $.Site.Params.social.pinterest }}" class="btn" target="_blank">
+    <i class="bi-pinterest" style="font-size:32px"></i></a>
 {{ end }}
 
 {{"<!-- END CONTACT SECTION -->" | safeHTML}}

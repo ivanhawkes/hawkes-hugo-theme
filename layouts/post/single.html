@@ -28,55 +28,56 @@
                 </div>
             </div>
 
+            <!-- Spacer. -->
+            <div class="row">
+                <div class="col-12">
+                    <hr />
+                </div>
+            </div>
+
             <!-- Publication details and social media sharing icons. -->
             <div class="row">
-                <div class="col text-start">
-                    &nbsp;
-                </div>
-                <div class="col text-start align-middle">
-                    <p class="h6 text-start">
+                <div class="col-6">
+                    <p class="h6">
                         By {{ .Params.author }}<br />{{ .PublishDate.Format "January 2, 2006" }}
                     </p>
                 </div>
-                <div class="col text-end align-middle">
+                <div class="col-6 text-end">
                     {{- partial "social-media-share.html" . -}}
-                </div>
-                <div class="col text-start">
-                    &nbsp;
                 </div>
             </div>
 
             <!-- Spacer. -->
             <div class="row">
-                <div class="col text-start">
+                <div class="col-12">
                     <hr />
                 </div>
             </div>
 
             <div class="row">
-                <div class="col text-start">
+                <div class="col">
                     {{ .Content }}
                 </div>
             </div>
 
             <!-- Spacer. -->
             <div class="row">
-                <div class="col text-start">
+                <div class="col-12">
                     <hr />
                 </div>
             </div>
 
             <!-- Blog Tags. -->
             <div class="row">
-                <div class="col text-start">
+                <div class="col">
                     <p class="h6">
                         Discover more posts like this:<br />
                         {{ with .Params.tags }}
-                        {{ range . }}
-                        <a class="btn btn-round" href="/tags/{{ . | urlize }}">
-                            {{ . }}
-                        </a>
-                        {{ end }}
+                            {{ range . }}
+                            <a class="btn btn-primary" href="/tags/{{ . | urlize }}">
+                                {{ . }}
+                            </a>
+                            {{ end }}
                         {{ end }}
                     </p>
                 </div>
@@ -84,23 +85,23 @@
 
             <!-- Spacer. -->
             <div class="row">
-                <div class="col text-start">
+                <div class="col">
                     <hr />
                 </div>
             </div>
 
             <!-- Next / Previous. -->
             <div class="row">
-                <div class="col text-start">
+                <div class="col">
                     &nbsp;
                 </div>
-                <div class="col text-start h6">
+                <div class="col h6">
                     {{ with .PrevInSection }} Previous:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
                 </div>
                 <div class="col text-end h6">
                     {{ with .NextInSection }} Next:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
                 </div>
-                <div class="col text-start">
+                <div class="col">
                     &nbsp;
                 </div>
             </div>
