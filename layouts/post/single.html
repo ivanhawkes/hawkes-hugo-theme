@@ -112,12 +112,14 @@
             <div class="row">
                 <div class="col">
                     <p class="h6">
-                        Discover more posts like this:<br />
+                        Discover more posts like this:
+                    </p>
+                    <p class="h6">
                         {{ with .Params.tags }}
                             {{ range . }}
-                            <a class="btn btn-primary" href="/tags/{{ . | urlize }}">
-                                {{ . }}
-                            </a>
+                                <a class="btn btn-primary" href="/tags/{{ . | urlize }}">
+                            {{ . }}
+                                </a>
                             {{ end }}
                         {{ end }}
                     </p>
@@ -133,22 +135,22 @@
 
             <!-- Next / Previous. -->
             <div class="row">
-                <div class="col">
-                    &nbsp;
-                </div>
-                <div class="col h6">
+                <div class="col-6 text-start">
                     {{ with .PrevInSection }} Previous:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
                 </div>
-                <div class="col text-end h6">
+                <div class="col-6 text-end">
                     {{ with .NextInSection }} Next:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
                 </div>
+            </div>
+
+            <!-- Spacer. -->
+            <div class="row">
                 <div class="col">
-                    &nbsp;
+                    <hr />
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 {{ end }}
