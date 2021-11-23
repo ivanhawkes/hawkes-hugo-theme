@@ -1,114 +1,109 @@
 {{ define "main" }}
 
-<div class="information-page">
+<div class="container">
     {{- partial "masthead-small.html" . -}}
 
-    <div class="main main-raised">
-        <div class="container">
+    <div class="container">
 
-            <div class="row">
-                <div class="col text-center">
+        <div class="row">
+            <div class="col text-center">
 
-                    <h1>{{ .Page.Title }}</h1>
+                <h1>{{ .Page.Title }}</h1>
 
-                    {{ if .Params.image }}
-                    <div class="card card-blog">
-                        <div class="card-header card-header-image">
-                            <a href="#pablo">
-                                <img src="{{ .Params.image }}" class="img-fluid" alt="">
-                            </a>
-                            <div class="colored-shadow" style="background-image: url('{{ .Params.image }}'); opacity: 1;"></div>
-                        </div>
-
-                        <div class="card-body">
-                            <p class="text-start">{{ .Params.imagecaption }}</p>
-                        </div>
+                {{ if .Params.image }}
+                <div class="card">
+                    <div class="card-header card-header-image">
+                        <a href="#pablo">
+                            <img src="{{ .Params.image }}" class="img-fluid" alt="">
+                        </a>
+                        <div class="colored-shadow" style="background-image: url('{{ .Params.image }}'); opacity: 1;"></div>
                     </div>
-                    {{ end }}
-                </div>
-            </div>
 
-            <!-- Publication details and social media sharing icons. -->
-            <div class="row">
-                <div class="col">
-                    &nbsp;
+                    <div class="card-body">
+                        <p class="text-start">{{ .Params.imagecaption }}</p>
+                    </div>
                 </div>
-                <div class="col align-middle">
-                    <p class="h6">
-                        By {{ .Params.author }}<br />{{ .PublishDate.Format "January 2, 2006" }}
-                    </p>
-                </div>
-                <div class="col text-end align-middle">
-                    {{- partial "social-media-share.html" . -}}
-                </div>
-                <div class="col">
-                    &nbsp;
-                </div>
+                {{ end }}
             </div>
+        </div>
 
-            <!-- Spacer. -->
-            <div class="row">
-                <div class="col">
-                    <hr />
-                </div>
+        <!-- Publication details and social media sharing icons. -->
+        <div class="row">
+            <div class="col">
+                &nbsp;
             </div>
-
-            <div class="row">
-                <div class="col">
-                    {{ .Content }}
-                </div>
+            <div class="col align-middle">
+                <p class="h6">
+                    By {{ .Params.author }}<br />{{ .PublishDate.Format "January 2, 2006" }}
+                </p>
             </div>
-
-            <!-- Spacer. -->
-            <div class="row">
-                <div class="col">
-                    <hr />
-                </div>
+            <div class="col text-end align-middle">
+                {{- partial "social-media-share.html" . -}}
             </div>
+            <div class="col">
+                &nbsp;
+            </div>
+        </div>
 
-            <!-- Blog Tags. -->
-            <div class="row">
-                <div class="col">
-                    <p class="h6">
-                        Discover more posts like this:
-                    </p>
-                    <p class="h6">
-                        {{ with .Params.tags }}
-                            {{ range . }}
-                                <a class="btn btn-primary" href="/tags/{{ . | urlize }}">
-                            {{ . }}
-                                </a>
-                            {{ end }}
+        <!-- Spacer. -->
+        <div class="row">
+            <div class="col">
+                <hr />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {{ .Content }}
+            </div>
+        </div>
+
+        <!-- Spacer. -->
+        <div class="row">
+            <div class="col">
+                <hr />
+            </div>
+        </div>
+
+        <!-- Blog Tags. -->
+        <div class="row">
+            <div class="col">
+                <p class="h6">
+                    Discover more posts like this:
+                </p>
+                <p class="h6">
+                    {{ with .Params.tags }}
+                        {{ range . }}
+                            <a class="btn btn-primary" href="/tags/{{ . | urlize }}"> {{ . }} </a>
                         {{ end }}
-                    </p>
-                </div>
+                    {{ end }}
+                </p>
             </div>
-            
-            <!-- Spacer. -->
-            <div class="row">
-                <div class="col">
-                    <hr />
-                </div>
+        </div>
+        
+        <!-- Spacer. -->
+        <div class="row">
+            <div class="col">
+                <hr />
             </div>
+        </div>
 
-            <!-- Next / Previous. -->
-            <div class="row">
-                <div class="col">
-                    &nbsp;
-                </div>
-                <div class="col h6">
-                    {{ with .PrevInSection }} Previous:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
-                </div>
-                <div class="col text-end h6">
-                    {{ with .NextInSection }} Next:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
-                </div>
-                <div class="col">
-                    &nbsp;
-                </div>
+        <!-- Next / Previous. -->
+        <div class="row">
+            <div class="col">
+                &nbsp;
+            </div>
+            <div class="col h6">
+                {{ with .PrevInSection }} Previous:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
+            </div>
+            <div class="col text-end h6">
+                {{ with .NextInSection }} Next:<br><a href="{{.Permalink}}"> {{.Title}}</a>{{ end }}
+            </div>
+            <div class="col">
+                &nbsp;
             </div>
         </div>
     </div>
-
 </div>
 
 {{ end }}

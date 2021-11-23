@@ -1,38 +1,31 @@
 {{ define "main" }}
 
-<div class="information-page">
+<div class="container">
     {{- partial "masthead-small.html" . -}}
 
-    <div class="main main-raised">
-
-        <div class="container">
-            <div class="row">
-                
-                <!-- If there's any content, it can go here, in it's own row. -->
-                {{ if .Content }}
-                    <div class="col-12">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    {{ .Content }}
-                                </div>
+    <div class="container">
+        <div class="row">
+            
+            <!-- If there's any content, it can go here, in it's own row. -->
+            {{ if .Content }}
+                <div class="col-12">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                {{ .Content }}
                             </div>
                         </div>
                     </div>
-                {{ end }}
-
-                {{"<!-- START PROFILES SECTION -->" | safeHTML}}
-
-                {{ range .Site.Data.profile.person }}
-                
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    {{- partial "profile-card.html" . -}}
                 </div>
+            {{ end }}
 
-                {{ end }}
+            {{"<!-- START PROFILES SECTION -->" | safeHTML}}
 
-                {{"<!-- END POSTS PROFILES -->" | safeHTML}}
-            </div>
+            {{ range .Site.Data.profile.person }}              
+                {{- partial "profile-card.html" . -}}
+            {{ end }}
+
+            {{"<!-- END POSTS PROFILES -->" | safeHTML}}
         </div>
     </div>
 </div>

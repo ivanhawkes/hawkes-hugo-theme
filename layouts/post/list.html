@@ -1,35 +1,32 @@
 {{ define "main" }}
 
-<div class="information-page">
+<div class="container">
     {{- partial "masthead-small.html" . -}}
 
-    <div class="main main-raised">
+    <div class="container">
+        <div class="row">
 
-        <div class="container">
-            <div class="row">
-
-                <!-- If there's any content, it can go here, in it's own row. -->
-                {{ if .Content }}
-                    <div class="col-12">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    {{ .Content }}
-                                </div>
+            <!-- If there's any content, it can go here, in it's own row. -->
+            {{ if .Content }}
+                <div class="col-12">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                {{ .Content }}
                             </div>
                         </div>
                     </div>
-                {{ end }}
+                </div>
+            {{ end }}
 
-                {{"<!-- START POSTS SECTION -->" | safeHTML}}
+            {{"<!-- START POSTS SECTION -->" | safeHTML}}
 
-                {{ range (where .Site.Pages.ByDate.Reverse "Type" "post") }}
-                    {{- partial "posts.html" . -}}
-                {{ end }}
+            {{ range (where .Site.Pages.ByDate.Reverse "Type" "post") }}
+                {{- partial "posts.html" . -}}
+            {{ end }}
 
-                {{"<!-- END POSTS SECTION -->" | safeHTML}}
+            {{"<!-- END POSTS SECTION -->" | safeHTML}}
 
-            </div>
         </div>
     </div>
 </div>

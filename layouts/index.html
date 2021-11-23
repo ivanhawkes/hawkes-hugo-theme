@@ -3,49 +3,46 @@
 
         {{ partial "masthead.html" . }}
 
-        <div class="main main-raised">
+        <div class="container ">
+            <div class="row">
+                {{"<!-- START LEAD SECTION -->" | safeHTML}}
 
-            <div class="container ">
-                <div class="row">
-                    {{"<!-- START LEAD SECTION -->" | safeHTML}}
+                {{ range .Site.Data.lead.item }}
+                    {{- partial "lead.html" . -}}
+                {{ end }}
 
-                    {{ range .Site.Data.lead.item }}
-                        {{- partial "lead.html" . -}}
+                {{"<!-- END LEAD PROFILES -->" | safeHTML}}
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    {{ .Page.Content }}
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="title text-center">Recent Posts</h2>
+            <hr />
+            <div class="row">
+                {{"<!-- START POSTS SECTION -->" | safeHTML}}
+                
+                {{ range first 9 (where .Site.Pages.ByDate.Reverse "Type" "post") }}
+                    {{- partial "posts.html" . -}}
+                {{ end }}
+
+                {{"<!-- END POSTS SECTION -->" | safeHTML}}
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    {{ with .Site.Params.social }}
+                        {{- partial "social-media.html" . -}}
                     {{ end }}
-
-                    {{"<!-- END LEAD PROFILES -->" | safeHTML}}
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        {{ .Page.Content }}
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <h2 class="title text-center">Recent Posts</h2>
-                <hr />
-                <div class="row">
-                    {{"<!-- START POSTS SECTION -->" | safeHTML}}
-                    
-                    {{ range first 9 (where .Site.Pages.ByDate.Reverse "Type" "post") }}
-                        {{- partial "posts.html" . -}}
-                    {{ end }}
-
-                    {{"<!-- END POSTS SECTION -->" | safeHTML}}
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        {{ with .Site.Params.social }}
-                            {{- partial "social-media.html" . -}}
-                        {{ end }}
-                    </div>
                 </div>
             </div>
         </div>
