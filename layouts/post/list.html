@@ -22,17 +22,13 @@
                 {{ end }}
 
                 <!-- Each data instance... -->
-                {{"<!-- START PROFILES SECTION -->" | safeHTML}}
+                {{"<!-- START POSTS SECTION -->" | safeHTML}}
 
-                {{ range (where .Pages.ByDate.Reverse "Type" "post") }}
-
-                <div class="col-sm-12 col-md-6 col-lg-4">
+                {{ range (where .Site.Pages.ByDate.Reverse "Type" "post") }}
                     {{- partial "posts.html" . -}}
-                </div>
-
                 {{ end }}
 
-                {{"<!-- END POSTS PROFILES -->" | safeHTML}}
+                {{"<!-- END POSTS SECTION -->" | safeHTML}}
 
             </div>
         </div>

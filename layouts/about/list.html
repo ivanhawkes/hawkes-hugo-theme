@@ -32,9 +32,7 @@
                             {{"<!-- START PROFILES SECTION -->" | safeHTML}}
 
                             {{ range .Site.Data.about.corevalue }}
-
-                            {{- partial "about-card.html" . -}}
-
+                                {{- partial "about-card.html" . -}}
                             {{ end }}
 
                             {{"<!-- END POSTS PROFILES -->" | safeHTML}}

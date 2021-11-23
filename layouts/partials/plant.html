@@ -3,20 +3,20 @@
     <div class="card-header card-header-image">
         <a href="{{ .Permalink }}">
             {{ if .Params.image }}
-            <img class="img-fluid" src="{{ .Params.image }}">
+            <img class="img img-raised" src="{{ .Params.image }}">
             {{ else }}
-            <img class="img-fluid" src="/img/site/missing-image.jpg">
+            <img class="img img-raised" src="/img/site/category/rain-forest.jpg">
             {{ end }}
         </a>
     </div>
 
     <div class="card-body">
-        <h6 class="card-category text-info">{{ .Params.category }}</h6>
         <h4 class="card-title">
             <a href="{{ .Permalink }}">
-                {{ .Title }}
+                {{ .Param "common-name" }} ({{ .Param "botanical-name" }})
             </a>
         </h4>
+        <h6 class="card-category text-info">{{ .Param "genus" }}, {{ .Params.family }}</h6>
         <p class="card-description">
             {{ .Summary }}
             <a href="{{ .Permalink }}">Read More&nbsp;>></a>

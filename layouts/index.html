@@ -1,21 +1,16 @@
 {{ define "main" }}
-
     <div class="index-page">
 
         {{ partial "masthead.html" . }}
 
         <div class="main main-raised">
 
-            <!-- Marketing jargon, leads. -->
             <div class="container ">
                 <div class="row">
-                    <!-- Each data instance... -->
                     {{"<!-- START LEAD SECTION -->" | safeHTML}}
 
                     {{ range .Site.Data.lead.item }}
-
                         {{- partial "lead.html" . -}}
-
                     {{ end }}
 
                     {{"<!-- END LEAD PROFILES -->" | safeHTML}}
@@ -35,11 +30,9 @@
                 <hr />
                 <div class="row">
                     {{"<!-- START POSTS SECTION -->" | safeHTML}}
-
-                    {{ range first 6 (where .Pages.ByDate.Reverse "Type" "post") }}
-
+                    
+                    {{ range first 9 (where .Site.Pages.ByDate.Reverse "Type" "post") }}
                         {{- partial "posts.html" . -}}
-
                     {{ end }}
 
                     {{"<!-- END POSTS SECTION -->" | safeHTML}}
@@ -47,10 +40,8 @@
             </div>
 
             <div class="container">
-                <h2 class="title text-center">Contact Us</h2>
-                <hr />
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12">
                         {{ with .Site.Params.social }}
                             {{- partial "social-media.html" . -}}
                         {{ end }}
@@ -59,5 +50,4 @@
             </div>
         </div>
     </div>
-
-    {{ end }}
+{{ end }}

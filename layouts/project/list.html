@@ -22,17 +22,13 @@
                 {{ end }}
 
                 <!-- Each data instance... -->
-                {{"<!-- START PROFILES SECTION -->" | safeHTML}}
+                {{"<!-- START PROJECTS SECTION -->" | safeHTML}}
 
                 {{ range (where .Pages "Type" "project") }}
-
-                <div class="col-sm-12 col-md-6 col-lg-4">
                     {{- partial "project.html" . -}}
-                </div>
-
                 {{ end }}
 
-                {{"<!-- END POSTS PROFILES -->" | safeHTML}}
+                {{"<!-- END PROJECTS SECTION -->" | safeHTML}}
             </div>
         </div>
     </div>

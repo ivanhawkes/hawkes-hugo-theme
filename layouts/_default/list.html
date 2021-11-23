@@ -25,11 +25,7 @@
                 {{"<!-- START POSTS SECTION -->" | safeHTML}}
 
                 {{ range .Pages }}
-
-                <div class="col-sm-12 col-md-6 col-lg-4">
                     {{- partial "posts.html" . -}}
-                </div>
-
                 {{ end }}
 
                 {{"<!-- END POSTS PROFILES -->" | safeHTML}}
