@@ -21,7 +21,6 @@
                     </div>
                 {{ end }}
 
-                <!-- Each data instance... -->
                 {{"<!-- START POSTS SECTION -->" | safeHTML}}
 
                 {{ range (where .Site.Pages.ByDate.Reverse "Type" "post") }}
