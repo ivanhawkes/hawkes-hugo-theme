@@ -1,25 +1,24 @@
-
-<div class="col-sm-12 col-md-6 col-lg-4 card">
-    <div class="card-header card-header-image">
-        <a href="{{ .Permalink }}">
-            {{ if .Params.image }}
-            <img class="img-fluid" src="{{ .Params.image }}">
-            {{ else }}
-            <img class="img-fluid" src="/img/site/missing-image.jpg">
-            {{ end }}
-        </a>
-    </div>
-
-    <div class="card-body">
-        <h6 class="card-category text-info">{{ .Params.category }}</h6>
-        <h4 class="card-title">
+    <div class="card col-sm-12 col-md-6 col-lg-4">
+        <div class="card-header card-header-image">
             <a href="{{ .Permalink }}">
-                {{ .Title }}
+                {{ if .Params.image }}
+                <img class="card-img-top" src="{{ .Params.image }}">
+                {{ else }}
+                <img class="card-img-top" src="/img/site/missing-image.jpg">
+                {{ end }}
             </a>
-        </h4>
-        <p class="card-description">
-            {{ .Summary }}
-            <a href="{{ .Permalink }}">Read More&nbsp;>></a>
-        </p>
+        </div>
+
+        <div class="card-body">
+            <h6 class="card-subtitle">{{ .Params.category }}</h6>
+            <h4 class="card-title">
+                <a href="{{ .Permalink }}">
+                    {{ .Title }}
+                </a>
+            </h4>
+            <p class="card-text">
+                {{ .Summary }}
+                <a href="{{ .Permalink }}">Read More&nbsp;>></a>
+            </p>
+        </div>
     </div>
-</div>

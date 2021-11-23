@@ -1,5 +1,5 @@
 
-<div class="col-sm-12 col-md-6 col-lg-4 card">
+<div class="card col-sm-12 col-md-6 col-lg-4">
     <div class="card-header card-header-image">
         <a href="{{ .Permalink }}">
             {{ if .Params.image }}
@@ -16,8 +16,8 @@
                 {{ .Param "common-name" }} ({{ .Param "botanical-name" }})
             </a>
         </h4>
-        <h6 class="card-category text-info">{{ .Param "genus" }}, {{ .Params.family }}</h6>
-        <p class="card-description">
+        <h6 class="card-subtitle">{{ .Param "genus" }}, {{ .Params.family }}</h6>
+        <p class="card-text">
             {{ .Summary }}
             <a href="{{ .Permalink }}">Read More&nbsp;>></a>
         </p>
