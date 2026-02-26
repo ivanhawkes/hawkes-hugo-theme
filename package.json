@@ -16,6 +16,11 @@
     "url": "https://github.com/ivanhawkes/hawkes-hugo-theme/issues"
   },
   "homepage": "https://github.com/ivanhawkes/hawkes-hugo-theme#readme",
+  "dependencies": {
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.97.3"
+  },
   "devDependencies": {
+    "gulp": "^5.0.1"
   }
 }
