@@ -1,26 +1,15 @@
 
 {{"<!-- START SOCIAL MEDIA SECTION -->" | safeHTML}}
 
+{{ with $.Site.Params.social.github }}
+<a href="http://www.github.com/{{ $.Site.Params.social.github }}" class="btn" target="_blank">
+    <i class="bi-github" style="font-size:32px"></i></a>
+{{ end }}
+
 {{ with $.Site.Params.social.facebook }}
 <a href="https://www.facebook.com/sharer/sharer.php?u={{ $.Site.Params.social.facebook }}" class="btn" target="_blank">
     <i class="bi-facebook" style="font-size:32px"></i>
 </a>
-{{ end }}
-
-{{ with $.Site.Params.social.twitter }}
-<a href="https://twitter.com/intent/tweet?url={{ $.Site.Params.social.twitter }}" class="btn" target="_blank">
-    <i class="bi-twitter" style="font-size:32px"></i>
-</a>
-{{ end }}
-
-{{ with $.Site.Params.social.linkedin }}
-<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $.Site.Params.social.linkedin }}" class="btn" target="_blank">
-    <i class="bi-linkedin" style="font-size:32px"></i></a>
-{{ end }}
-
-{{ with $.Site.Params.social.pinterest }}
-<a href="http://www.pinterest.com/pin/find/?url={{ $.Site.Params.social.pinterest }}" class="btn" target="_blank">
-    <i class="bi-pinterest" style="font-size:32px"></i></a>
 {{ end }}
 
 {{"<!-- END SOCIAL MEDIA SECTION -->" | safeHTML}}
